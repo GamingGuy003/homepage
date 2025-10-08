@@ -1,7 +1,15 @@
+use std::sync::Arc;
+
 use leptos::{
-    IntoView, component, ev,
-    html::{button, div, progress},
-    prelude::{ElementChild, Get, OnAttribute, ReadSignal, Write, signal},
+    IntoView,
+    children::{self, Children},
+    component, ev,
+    html::{InnerHtmlAttribute, button, div, progress},
+    prelude::{
+        ChildrenFn, ComponentConstructor, ElementChild, Get, IntoAny, OnAttribute, ReadSignal,
+        Write, signal,
+    },
+    view,
 };
 
 fn main() {
@@ -18,12 +26,17 @@ fn App() -> impl IntoView {
 
     div().child((
         button().child("-").on(ev::click, dec),
-        ProgressBar(ProgressBarProps { current: count }),
+        ProgressBar(ProgressBarProps {
+            current: count,
+            children: Arc::new(move || div().child(move || count.get()).into_any()),
+        }),
         button().child("+").on(ev::click, inc),
     ))
 }
 
 #[component]
-fn ProgressBar(current: ReadSignal<i32>) -> impl IntoView {
-    progress().max(20).value(move || current.get())
+fn ProgressBar(current: ReadSignal<i32>, children: ChildrenFn) -> impl IntoView {
+    div()
+        .child(progress().max(20).value(move || current.get()))
+        .child(children())
 }
