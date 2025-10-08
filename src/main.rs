@@ -1,15 +1,9 @@
 use std::sync::Arc;
 
 use leptos::{
-    IntoView,
-    children::{self, Children},
-    component, ev,
-    html::{InnerHtmlAttribute, button, div, progress},
-    prelude::{
-        ChildrenFn, ComponentConstructor, ElementChild, Get, IntoAny, OnAttribute, ReadSignal,
-        Write, signal,
-    },
-    view,
+    IntoView, component, ev,
+    html::{button, div, progress},
+    prelude::{ChildrenFn, ElementChild, Get, IntoAny, OnAttribute, ReadSignal, Write, signal},
 };
 
 fn main() {
