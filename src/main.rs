@@ -1,10 +1,7 @@
-use leptos::{
-    IntoView, component,
-    html::{div, progress},
-    prelude::{
-        ChildrenFn, ClassAttribute, ElementChild, Get, OnAttribute, ReadSignal, Write, signal,
-    },
-};
+use std::sync::Arc;
+
+use leptos::{IntoView, component};
+use leptos::{ev, prelude::*};
 
 fn main() {
     console_error_panic_hook::set_once();
@@ -13,26 +10,35 @@ fn main() {
 
 #[component]
 fn App() -> impl IntoView {
+    use leptos::html::{button, div};
+
     let (count, set_count) = signal(0);
 
     let inc = move |_| *set_count.write() += 1;
     let dec = move |_| *set_count.write() -= 1;
 
+    div()
+        .child((
+            button()
+                .child("-")
+                .on(ev::click, dec)
+                .class("rounded border bg-green-600 dark:bg-purple-600 size-32"),
+            ProgressBar(ProgressBarProps {
+                current: count,
+                children: Arc::new(move || {
+                    div()
+                        .child(move || count.get())
+                        .class("w-full text-center text-lg")
+                        .into_any()
+                }),
+            }),
+            button()
+                .child("+")
+                .on(ev::click, inc)
+                .class("rounded border bg-red-600 size-32"),
+        ))
+        .class("w-full h-full dark:bg-tahiti flex flex-row")
     /*
-    div().child((
-        button()
-            .child("-")
-            .on(ev::click, dec)
-            .class("border")
-            .class("bg-blue-600")
-            .class("hover:bg-blue-600"),
-        ProgressBar(ProgressBarProps {
-            current: count,
-            children: Arc::new(move || div().child(move || count.get()).into_any()),
-        }),
-        button().child("+").on(ev::click, inc),
-    ))
-    */
     leptos::view! {
         <div>
             <button on:click=inc class="bg-green-600 rounded">+</button>
@@ -42,11 +48,20 @@ fn App() -> impl IntoView {
             <button on:click=dec class="bg-red-600 rounded">-</button>
         </div>
     }
+    */
 }
 
 #[component]
 fn ProgressBar(current: ReadSignal<i32>, children: ChildrenFn) -> impl IntoView {
+    use leptos::html::{div, progress};
+
     div()
-        .child(progress().max(20).value(move || current.get()))
+        .child(
+            progress()
+                .max(20)
+                .value(move || current.get())
+                .class("rounded border w-full h-full"),
+        )
         .child(children())
+        .class("flex-grow")
 }
