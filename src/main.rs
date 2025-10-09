@@ -21,14 +21,30 @@ fn App() -> impl IntoView {
     let inc = move |_| *set_count.write() += 1;
     let dec = move |_| *set_count.write() -= 1;
 
+    /*
     div().child((
-        button().child("-").on(ev::click, dec).class("rounded"),
+        button()
+            .child("-")
+            .on(ev::click, dec)
+            .class("border")
+            .class("bg-blue-600")
+            .class("hover:bg-blue-600"),
         ProgressBar(ProgressBarProps {
             current: count,
             children: Arc::new(move || div().child(move || count.get()).into_any()),
         }),
         button().child("+").on(ev::click, inc),
     ))
+    */
+    leptos::view! {
+        <div>
+            <button on:click=inc class="bg-green-600 rounded">+</button>
+            <ProgressBar current=count>
+                <p>{move || count.get()}</p>
+            </ProgressBar>
+            <button on:click=dec class="bg-red-600 rounded">-</button>
+        </div>
+    }
 }
 
 #[component]
