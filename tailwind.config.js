@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{rs,html}"],
+  content: ["./index.html", "./src/**/*.rs", "./src/*.rs"],
   theme: {
     extend: {
       colors: {
@@ -18,5 +18,4 @@ module.exports = {
   },
   darkMode: 'class',
   plugins: [],
-  safeList: [{ pattern: /(bg|text|border)-(transparent|current|white|purple|midnight|metal|tahiti|silver|bermuda)/ }]
 }
