@@ -1,11 +1,8 @@
-use std::sync::Arc;
-
 use leptos::{
-    IntoView, component, ev,
-    html::{button, div, progress},
+    IntoView, component,
+    html::{div, progress},
     prelude::{
-        ChildrenFn, ClassAttribute, ElementChild, Get, IntoAny, OnAttribute, ReadSignal, Write,
-        signal,
+        ChildrenFn, ClassAttribute, ElementChild, Get, OnAttribute, ReadSignal, Write, signal,
     },
 };
 
