@@ -63,8 +63,8 @@ jobs:
         # will obviously return error 404 not found.
         run: ./trunk build --release --public-url "${GITHUB_REPOSITORY#*/}"
 
-      - name: Copy static assets
-        run: cp -Rv static ./dist/static
+      #- name: Copy static assets
+      #  run: cp -Rv static ./dist/static
 
       # Deploy to gh-pages branch
       # - name: Deploy 🚀
