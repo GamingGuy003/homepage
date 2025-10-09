@@ -3,7 +3,10 @@ use std::sync::Arc;
 use leptos::{
     IntoView, component, ev,
     html::{button, div, progress},
-    prelude::{ChildrenFn, ElementChild, Get, IntoAny, OnAttribute, ReadSignal, Write, signal},
+    prelude::{
+        ChildrenFn, ClassAttribute, ElementChild, Get, IntoAny, OnAttribute, ReadSignal, Write,
+        signal,
+    },
 };
 
 fn main() {
@@ -19,7 +22,7 @@ fn App() -> impl IntoView {
     let dec = move |_| *set_count.write() -= 1;
 
     div().child((
-        button().child("-").on(ev::click, dec),
+        button().child("-").on(ev::click, dec).class("rounded"),
         ProgressBar(ProgressBarProps {
             current: count,
             children: Arc::new(move || div().child(move || count.get()).into_any()),
