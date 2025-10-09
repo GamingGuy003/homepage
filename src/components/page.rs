@@ -1,5 +1,5 @@
 use leptos::{
-    html::{div, h1, img, li, nav, ol, p},
+    html::{div, img},
     prelude::*,
 };
 
