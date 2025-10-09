@@ -22,7 +22,7 @@ fn App() -> impl IntoView {
             button()
                 .child("-")
                 .on(ev::click, dec)
-                .class("rounded border bg-green-600 dark:bg-purple-600 size-32"),
+                .class("rounded border text-terminal-purple size-32"),
             ProgressBar(ProgressBarProps {
                 current: count,
                 children: Arc::new(move || {
@@ -35,9 +35,9 @@ fn App() -> impl IntoView {
             button()
                 .child("+")
                 .on(ev::click, inc)
-                .class("rounded border bg-red-600 size-32"),
+                .class("rounded border fg-terminal-red size-32"),
         ))
-        .class("w-full h-full dark:bg-tahiti flex flex-row")
+        .class("w-full h-full bg-storm flex flex-row")
     /*
     leptos::view! {
         <div>
