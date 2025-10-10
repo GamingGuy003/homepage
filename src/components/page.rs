@@ -1,16 +1,16 @@
 use leptos::{
-    html::{div, img},
+    html::{div, img, nav},
     prelude::*,
 };
 
+use crate::components::id::Id;
+
 #[component]
 pub fn Page() -> impl IntoView {
-    div()
-        .class("rounded bg-orange-100 p-5 m-5 flex gap-5 shadow-md")
-        .child((
-            img()
-                .src("./static/images/profile.png")
-                .class("rounded shadow-md"),
-            div().class("flex-col flex w-full rounded bg-yellow-100 shadow-md"),
-        ))
+    div().child((
+        nav()
+            .child(img().src("./static/images/profile.png").class("size-16"))
+            .class("shadow-md"),
+        Id(),
+    ))
 }
