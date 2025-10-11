@@ -3,7 +3,7 @@ use std::process::Command;
 fn main() {
     // create GIT_HASH env variable for output in page
     let git_output = Command::new("git")
-        .args(&["rev-parse", "--short", "HEAD"])
+        .args(["rev-parse", "--short", "HEAD"])
         .output()
         .unwrap();
     // create DATE env variable for output in page
