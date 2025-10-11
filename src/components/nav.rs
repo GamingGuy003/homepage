@@ -24,11 +24,14 @@ pub fn Nav() -> impl IntoView {
     });
 
     nav()
+        .class("shadow-md fixed w-full h-12 bg-background-ui dark:bg-background-ui-dark flex flex-col overflow-hidden")
         .child((
             div()
+                .class("flex justify-between items-center h-full")
                 .child((
-                    img().src("./static/images/profile.png").class("size-14 p-50"),
+                    img().src("./static/images/profile.png").class("size-12"),
                     button()
+                        .class("h-full aspect-square rounded-full")
                         .child(
                             Icon(leptos_icons::IconProps {
                                 icon: Signal::derive({
@@ -47,19 +50,16 @@ pub fn Nav() -> impl IntoView {
                                 }
                             }),
                         )
+                        // cant move this up or things explode
                         .on(ev::click, move |_| darkmode.toggle())
-                        .class("h-full aspect-square"),
-                ))
-                .class("flex justify-between items-center"),
+                )),
             progress()
-                // default styling
                 .class("
                     [&::-moz-progress-bar]:rounded-full absolute bottom-0 left-0 w-full h-0.5
-                    [&::-moz-progress-bar]:bg-gradient-to-r [&::-moz-progress-bar]:from-terminal-azure [&::-moz-progress-bar]:to-terminal-purple bg-background-ui
-                    dark:[&::-moz-progress-bar]:bg-gradient-to-r dark:[&::-moz-progress-bar]:from-terminal-azure dark:[&::-moz-progress-bar]:to-terminal-purple dark:bg-background-ui-dark"
+                    [&::-moz-progress-bar]:bg-gradient-to-r [&::-moz-progress-bar]:from-terminal-orange [&::-moz-progress-bar]:to-terminal-red bg-background-ui
+                    dark:[&::-moz-progress-bar]:bg-gradient-to-r dark:[&::-moz-progress-bar]:from-terminal-azure-dark dark:[&::-moz-progress-bar]:to-terminal-purple-dark dark:bg-background-ui-dark"
                 )
                 .max(100)
                 .value(move || scrollprogress.get()),
         ))
-        .class("shadow-md fixed w-full h-12 bg-background-ui dark:bg-background-ui-dark flex flex-col")
 }
