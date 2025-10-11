@@ -33,13 +33,7 @@ pub fn Nav() -> impl IntoView {
                             Icon(leptos_icons::IconProps {
                                 icon: Signal::derive({
                                     let darkmode_clone = darkmode.clone();
-                                    move || {
-                                        if darkmode_clone.is_dark() {
-                                            icondata::LuMoonStar
-                                        } else {
-                                            icondata::LuSun
-                                        }
-                                    }
+                                    move || if darkmode_clone.is_dark() { icondata::LuMoonStar } else { icondata::LuSun }
                                 }),
                                 style: MaybeProp::default(),
                                 width: MaybeProp::default(),
@@ -48,10 +42,8 @@ pub fn Nav() -> impl IntoView {
                             .attr("class", {
                                 let darkmode_clone = darkmode.clone();
                                 move || {
-                                    darkmode_clone
-                                        .is_dark()
-                                        .then_some("text-foreground-dark")
-                                        .unwrap_or("text-foreground")
+                                    if darkmode_clone.is_dark() { "text-foreground-dark" } 
+                                    else { "text-foreground" }
                                 }
                             }),
                         )
