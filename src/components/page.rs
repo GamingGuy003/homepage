@@ -25,7 +25,7 @@ pub fn Page() -> impl IntoView {
             nav()
                 .child(
                     div().class("flex-col flex").child((
-                        img().src("./static/images/profile.png").class("size-16"),
+                        img().src("./static/images/profile.png").class("size-12"),
                         progress()
                             .class("h-0.5")
                             .max(100)
