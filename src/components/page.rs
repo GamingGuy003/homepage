@@ -32,5 +32,5 @@ pub fn Page() -> impl IntoView {
         ))
         .on(ev::click, |data| leptos::logging::log!("{:?}", data))
         // darkmode toggle
-        .class(move || darkmode.is_dark().then(|| Some("dark")))
+        .class(move || darkmode.is_dark().then_some("dark"))
 }
