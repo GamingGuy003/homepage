@@ -24,7 +24,7 @@ pub fn Page() -> impl IntoView {
         .child((
             nav()
                 .child(
-                    div().class("flex-col flex bg-storm-night").child((
+                    div().class("flex-col flex dark:bg-storm-night").child((
                         img().src("./static/images/profile.png").class("size-12"),
                         progress()
                             .class("h-0.5")
