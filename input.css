@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
-* {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/* Default dark mode colors */
+@theme {
+  /* Text */
+  --color-foreground: #a9b1d6;
+  /* Background */
+  --color-storm-night: #24283b;
+  /* Various colors */
+  --color-terminal-red: #f7768e;
+  --color-terminal-orange: #ff9e64;
+  --color-terminal-yellow: #e0af68;
+  --color-terminal-green: #9ece6a;
+  --color-terminal-azure: #2ac3de;
+  --color-terminal-purple: #bb9af7;
+}
+
+/* Adapt theme to light mode */
+@media (prefers-color-scheme: light) {
+  @theme {
+    --color-foreground: #343b58;
+    --color-storm-night: #e6e7ed;
+    --color-terminal-red: #8c4351;
+    --color-terminal-orange: #965027;
+    --color-terminal-yellow: #8f5e15;
+    --color-terminal-green: #385f0d;
+    --color-terminal-azure: #0f4b6e;
+    --color-terminal-purple: #5a3e8e;
+  }
 }
