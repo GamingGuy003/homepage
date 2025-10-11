@@ -61,7 +61,5 @@ pub fn Nav() -> impl IntoView {
                 .max(100)
                 .value(move || scrollprogress.get()),
         ))
-        .class(
-            "shadow-md fixed w-full h-12 bg-background-ui dark:bg-background-ui-dark flex flex-col",
-        )
+        .class("shadow-md fixed w-full h-12 bg-background-ui dark:bg-background-ui-dark flex flex-col")
 }
