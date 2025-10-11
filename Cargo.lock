@@ -554,10 +554,12 @@ name = "homepage"
 version = "0.1.0"
 dependencies = [
  "console_error_panic_hook",
+ "icondata",
  "leptos",
+ "leptos_darkmode",
+ "leptos_icons",
  "leptos_meta",
  "leptos_router",
- "web-sys",
 ]
 
 [[package]]
@@ -592,6 +594,31 @@ dependencies = [
  "pin-project-lite",
  "serde",
  "throw_error",
+]
+
+[[package]]
+name = "icondata"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "278d66461d56cdaa2ff2a395e2e0b033330ed0c16171cc3f8f3f3857ea164832"
+dependencies = [
+ "icondata_core",
+ "icondata_lu",
+]
+
+[[package]]
+name = "icondata_core"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6c97be924215abd5e630d84e95a47c710138a6559b4c55039f4f33aa897fa859"
+
+[[package]]
+name = "icondata_lu"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f25663a6cc5371e9e33c98bab870f4aa2fd68c88853f1467c8fccfaf112782b1"
+dependencies = [
+ "icondata_core",
 ]
 
 [[package]]
@@ -796,6 +823,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "leptos_darkmode"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c160912622adc82d9e9e0f28fde74f24652aab52ad9d057656899a3030c78b11"
+dependencies = [
+ "leptos",
+ "web-sys",
+]
+
+[[package]]
 name = "leptos_dom"
 version = "0.8.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -826,6 +863,16 @@ dependencies = [
  "serde",
  "syn",
  "walkdir",
+]
+
+[[package]]
+name = "leptos_icons"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "68bb2db144efbf0c0ae03c15143ff98b5d456093a64112bb8dd72c29c3ba730b"
+dependencies = [
+ "icondata_core",
+ "leptos",
 ]
 
 [[package]]

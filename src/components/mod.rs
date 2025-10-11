@@ -1,2 +1,2 @@
-mod id;
+mod nav;
 pub mod page;
