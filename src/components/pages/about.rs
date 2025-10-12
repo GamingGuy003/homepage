@@ -1,9 +1,10 @@
 use std::sync::Arc;
 
 use leptos::{
-    html::{a, div, img, li, p, ul},
+    html::{a, button, div, img, p},
     prelude::*,
 };
+use leptos_icons::Icon;
 
 #[component]
 pub fn About() -> impl IntoView {
@@ -68,21 +69,71 @@ pub fn About() -> impl IntoView {
                         div()
                             .child((
                                 p().child(
-                                    "I am not active on any social media,
-                                however feel free to reach out to me under any of the following:",
+                                    "I am not active on any social media, however feel free
+                                    to look into my doings or reach out to me under any of the following:",
                                 ),
-                                ul().class("list-disc pl-5").child((
-                                    li().child(
-                                        a().href("https://github.com/GamingGuy003")
-                                            .target("_blank")
-                                            .child("Github"),
-                                    ),
-                                    li().child(
-                                        a().href("mailto:bjhell@unibz.it")
-                                            .target("_blank")
-                                            .child("Email"),
-                                    ),
-                                )),
+                                div()
+                                    .class("grid grid-cols-2 grid-rows-2 gap-3 py-3")
+                                    .child((
+                                        button()
+                                            .class(
+                                                "rounded-md bg-background-ui dark:bg-background-ui-dark p-1 shadow-md flex
+                                                transition-transform duration-100 hover:scale-95 active:scale-75 px-5"
+                                            )
+                                            .child((
+                                                Icon(leptos_icons::IconProps {
+                                                    icon: Signal::derive(|| icondata::LuGithub),
+                                                    style: MaybeProp::default(),
+                                                    width: MaybeProp::default(),
+                                                    height: MaybeProp::default(),
+                                                })
+                                                .attr("class", "h-full"),
+                                                a()
+                                                    .class("w-full")
+                                                    .href("https://github.com/GamingGuy003")
+                                                    .target("_blank")
+                                                    .child("Github"),
+                                            )),
+                                        button()
+                                            .class(
+                                                "rounded-md bg-background-ui dark:bg-background-ui-dark p-1 shadow-md flex
+                                                transition-transform duration-100 hover:scale-95 active:scale-75 px-5"
+                                            )
+                                            .child((
+                                                Icon(leptos_icons::IconProps {
+                                                    icon: Signal::derive(|| icondata::LuMail),
+                                                    style: MaybeProp::default(),
+                                                    width: MaybeProp::default(),
+                                                    height: MaybeProp::default(),
+                                                })
+                                                .attr("class", "h-full"),
+                                                a()
+                                                    .class("w-full")
+                                                    .href("mailto:bjhell@unibz.it")
+                                                    .target("_blank")
+                                                    .child("Email")
+                                            )),
+                                        button()
+                                            .class(
+                                                "rounded-md bg-background-ui dark:bg-background-ui-dark p-1 shadow-md flex
+                                                transition-transform duration-100 hover:scale-95 active:scale-75 px-5"
+                                            )
+                                            .child((
+                                                Icon(leptos_icons::IconProps {
+                                                    icon: Signal::derive(|| icondata::ImSpotify),
+                                                    style: MaybeProp::default(),
+                                                    width: MaybeProp::default(),
+                                                    height: MaybeProp::default(),
+                                                })
+                                                .attr("class", "h-full"),
+                                                a()
+                                                    .class("w-full")
+                                                    .href("https://open.spotify.com/user/5rh4hrchdlrl1uhmc3lqqcia1")
+                                                    .target("_blank")
+                                                    .child("Spotify")
+                                            ))
+                                    )),
+                                p().class("text-xs").child("I will do my best to respond within 24 hours!"),
                             ))
                             .into_any()
                     }))
