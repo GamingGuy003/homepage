@@ -25,17 +25,17 @@ pub fn Page() -> impl IntoView {
         children: RouteChildren::to_children(|| {
             (
                 Route(RouteProps {
-                    path: path!("./"),
+                    path: path!("/"),
                     view: Landing,
                     ssr: leptos_router::SsrMode::OutOfOrder,
                 }),
                 Route(RouteProps {
-                    path: path!("./about"),
+                    path: path!("/about"),
                     view: About,
                     ssr: leptos_router::SsrMode::OutOfOrder,
                 }),
                 Route(RouteProps {
-                    path: path!("./p1"),
+                    path: path!("/p1"),
                     view: Project1,
                     ssr: leptos_router::SsrMode::OutOfOrder,
                 }),
