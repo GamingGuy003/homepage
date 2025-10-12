@@ -33,7 +33,6 @@ pub fn About() -> impl IntoView {
                                                 a while.",
                                             ),
                                         )),
-                                    
                                     Images(),
                                 )),
                                 p().child(
@@ -153,7 +152,6 @@ pub fn Languages() -> impl IntoView {
                 ))
         ))
 }
-
 
 #[component]
 pub fn Card<'a>(title: &'a str, children: ChildrenFn, class: Option<&'a str>) -> impl IntoView {
