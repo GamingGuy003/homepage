@@ -65,12 +65,15 @@ jobs:
 
       #- name: Copy static assets
       #  run: cp -Rv static ./dist/static
+      
+      - name: Override 404 page
+        run: cp ./dist/index*.html ./dist/404.html
 
       # Deploy to gh-pages branch
       # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: dist
+      #  uses: JamesIves/github-pages-deploy-action@v4
+      #  with:
+      #    folder: dist
 
 
       # Deploy with Github Static Pages

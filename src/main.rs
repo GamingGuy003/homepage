@@ -10,7 +10,9 @@ fn main() {
     let children = TypedChildren::to_children(Page);
     let props = RouterProps::builder()
         .children(children)
-        .base(option_env!("BASE_PATH").unwrap_or(""))
+        //        .base(option_env!("BASE_PATH").unwrap_or("/#/"))
+        .base("/sond/#")
         .build();
+
     leptos::mount::mount_to_body(|| Router(props));
 }
