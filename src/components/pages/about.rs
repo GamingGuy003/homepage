@@ -212,23 +212,23 @@ pub fn Images() -> impl IntoView {
                     .class("shadow-md rounded-lg relative overflow-hidden group flex")
                     .child((
                         div()
-                            .class("grid grid-cols-2 grid-rows-2 p-2 max-h-full")
+                            .class("grid grid-cols-2 grid-rows-2 gap-2 p-2 max-h-full")
                             .child((
                                 img()
-                                    .class("h-full")
+                                    .class("h-full aspect-square")
                                     .src("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Fedora_logo.svg/2048px-Fedora_logo.svg.png")
                                     .alt("Fedora my beloved"),
                                 img()
-                                    .class("h-full")
+                                    .class("h-full aspect-square")
                                     .src("https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Arch_Linux_%22Crystal%22_icon.svg/2048px-Arch_Linux_%22Crystal%22_icon.svg.png")
                                     .alt("Arch my first"),
                                 img()
-                                    .class("h-full")
+                                    .class("h-full aspect-square")
                                     .class("h-full")
                                     .src("https://upload.wikimedia.org/wikipedia/commons/1/19/Gentoo_Logo_Vector.svg")
                                     .alt("Gentoo for maximum braindamage"),
                                 img()
-                                    .class("h-full")
+                                    .class("h-full aspect-square")
                                     .src("https://avatars.githubusercontent.com/u/2678585?s=200&v=4")
                                     .alt("Ol'reliable")
                             )),
