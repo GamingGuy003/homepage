@@ -21,7 +21,7 @@ fn main() {
 
     let git_repo = git_repo_raw
         .split('/')
-        .last()
+        .next_back()
         .unwrap_or_default()
         .trim_end_matches(".git");
 
