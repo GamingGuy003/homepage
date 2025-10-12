@@ -1,6 +1,6 @@
 use leptos::{
     ev,
-    html::{div, footer},
+    html::{a, div, footer, p},
     prelude::*,
 };
 use leptos_darkmode::Darkmode;
@@ -19,16 +19,27 @@ pub fn Page() -> impl IntoView {
             Nav(),
             // content
             div()
-                .style("height: 200vh")
-                .class("shadow-md bg-background-content dark:bg-background-content-dark"),
+                .class("shadow-md bg-background-content dark:bg-background-content-dark h-300"),
             // footer
             footer()
-                .child(format!(
-                    "commit {} built on {}",
-                    env!("GIT_HASH"),
-                    env!("DATE")
+                .class("bg-background-ui dark:bg-background-ui-dark text-foreground dark:text-foreground-dark h-20 place-self-center")
+                .child((
+                    p()
+                        .class("text-foreground dark:text-foreground-dark")
+                        .child(format!(
+                            "commit {} built on {}",
+                            env!("GIT_HASH"),
+                            env!("DATE")
+                        )),
+                    p()
+                        .child((
+                            "Oneko by ",
+                            a()
+                                .href("https://sleepie.dev/oneko")
+                                .child("sleepie.dev")
+                                .target("_blank")
+                            ))
                 ))
-                .class("bg-background-ui dark:bg-background-ui-dark text-foreground dark:text-foreground-dark h-20 place-self-center"),
         ))
         .on(ev::click, |data| leptos::logging::log!("{:?}", data))
         // darkmode toggle
