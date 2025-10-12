@@ -45,24 +45,22 @@ pub fn Nav() -> impl IntoView {
                                 )
                         ),
                     button()
-                        .class("h-full aspect-square flex items-center w-12 xs:w-32 transition-transform duration-100 hover:scale-95 active:scale-75 cursor-pointer")
+                        .class(
+                            "aspect-square flex align-center items-center w-12 xs:w-32
+                            transition-transform duration-100 hover:scale-95 active:scale-75 cursor-pointer
+                            text-foreground dark:text-foreground-dark px-2 m-2"
+                        )
                         .child(
                             Icon(leptos_icons::IconProps {
                                 icon: Signal::derive({
                                     let darkmode_clone = darkmode.clone();
                                     move || if darkmode_clone.is_dark() { icondata::LuMoonStar } else { icondata::LuSun }
                                 }),
-                                style: "width: 50%".into(),
+                                style: "width: 100%".into(),
                                 width: MaybeProp::default(),
                                 height: MaybeProp::default(),
                             })
-                            .attr("class", {
-                                let darkmode_clone = darkmode.clone();
-                                move || {
-                                    if darkmode_clone.is_dark() { "text-foreground-dark h-full" } 
-                                    else { "text-foreground h-full" }
-                                }
-                            }),
+                            .attr("class", "h-full")
                         )
                         // cant move this up or things explode
                         .on(ev::click, move |_| darkmode.toggle())
