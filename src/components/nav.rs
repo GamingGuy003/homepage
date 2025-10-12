@@ -35,7 +35,7 @@ pub fn Nav() -> impl IntoView {
                         .child(
                             a()
                                 .href("/")
-                                .child(                            
+                                .child(
                                     img()
                                         .class("block max-h-10 dark:brightness-85 transition-transform duration-100 hover:scale-95 active:scale-75")
                                         .src("./static/images/profile.png")
