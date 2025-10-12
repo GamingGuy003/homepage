@@ -1,6 +1,6 @@
 use leptos::{
     ev,
-    html::{button, div, img, nav, progress},
+    html::{a, button, div, img, nav, progress},
     prelude::*,
 };
 use leptos_darkmode::Darkmode;
@@ -12,41 +12,53 @@ pub fn Nav() -> impl IntoView {
 
     let (scrollprogress, set_scrollprogress) = signal(0.0);
     window_event_listener(ev::scroll, move |_| {
-        let window = window();
-        let document = window.document().unwrap();
-        let element = document.document_element().unwrap();
+        let document = document();
 
-        let scroll_top = element.scroll_top() as f64;
-        let scroll_height = element.scroll_height() as f64;
-        let client_height = element.client_height() as f64;
+        let body = document.body().unwrap();
+        let html = document.document_element().unwrap();
+
+        let scroll_top = html.scroll_top() as f64;
+        let scroll_height = body.scroll_height().max(html.scroll_height()) as f64;
+        let client_height = window().inner_height().unwrap().as_f64().unwrap();
 
         set_scrollprogress.set((scroll_top / (scroll_height - client_height)) * 100.0);
     });
 
     nav()
-        .class("shadow-md fixed w-full h-12 bg-background-ui dark:bg-background-ui-dark flex flex-col overflow-hidden")
+        .class("fixed w-full top-0 left-0 h-14 bg-background-ui/50 dark:bg-background-ui-dark/50 backdrop-blur-md flex flex-col shadow-md")
         .child((
             div()
                 .class("flex justify-between items-center h-full")
                 .child((
-                    img().src("./static/images/profile.png").class("size-12"),
+                    div()
+                        .class("flex items-center")
+                        .child(
+                            a()
+                                .href("/")
+                                .child(                            
+                                    img()
+                                        .class("block max-h-10 dark:brightness-85 transition-transform duration-100 hover:scale-95 active:scale-75")
+                                        .src("./static/images/profile.png")
+                                        .alt("Logo")
+                                )
+                        ),
                     button()
-                        .class("h-full aspect-square rounded-full")
+                        .class("h-full aspect-square flex items-center w-12 xs:w-32 transition-transform duration-100 hover:scale-95 active:scale-75 cursor-pointer")
                         .child(
                             Icon(leptos_icons::IconProps {
                                 icon: Signal::derive({
                                     let darkmode_clone = darkmode.clone();
                                     move || if darkmode_clone.is_dark() { icondata::LuMoonStar } else { icondata::LuSun }
                                 }),
-                                style: MaybeProp::default(),
+                                style: "width: 50%".into(),
                                 width: MaybeProp::default(),
                                 height: MaybeProp::default(),
                             })
                             .attr("class", {
                                 let darkmode_clone = darkmode.clone();
                                 move || {
-                                    if darkmode_clone.is_dark() { "text-foreground-dark" } 
-                                    else { "text-foreground" }
+                                    if darkmode_clone.is_dark() { "text-foreground-dark h-full" } 
+                                    else { "text-foreground h-full" }
                                 }
                             }),
                         )

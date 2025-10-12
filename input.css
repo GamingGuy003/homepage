@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -28,4 +27,13 @@
   --color-terminal-purple-dark: #bb9af7;
   --color-terminal-black: #343B58;
   --color-terminal-black-dark: #414868;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
