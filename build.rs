@@ -28,12 +28,7 @@ fn main() {
     println!("cargo:rustc-env=GIT_HASH={git_hash}");
     println!("cargo:rustc-env=DATE={date}");
     // set the base path to repo name if compiling on github actions
-    println!(
-        "cargo::rustc-env=BASE_PATH={}",
-        if std::env::var("GITHUB_ACTIONS").is_ok() {
-            git_repo
-        } else {
-            ""
-        }
-    );
+    if std::env::var("GITHUB_ACTIONS").is_ok() {
+        println!("cargo::rustc-env=BASE_PATH=/{git_repo}");
+    }
 }
