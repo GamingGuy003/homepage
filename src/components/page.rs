@@ -1,6 +1,6 @@
 use leptos::{
     ev,
-    html::{div, footer, p},
+    html::{a, div, footer, p},
     prelude::*,
 };
 use leptos_darkmode::Darkmode;
@@ -55,13 +55,14 @@ pub fn Page() -> impl IntoView {
             footer()
                 .class("bg-background-ui dark:bg-background-ui-dark text-foreground dark:text-foreground-dark py-5 text-center")
                 .child((
+                    a().href("/about").child("About me"),
                     p()
                         .child(format!(
                             "Commit {} built on {} by",
                             env!("GIT_HASH"),
                             env!("DATE"),
                         )),
-                        p().child(env!("UNAME"))
+                    p().child(env!("UNAME")),
                 ))
         ))
         .on(ev::click, |data| leptos::logging::log!("{:?}", data))
