@@ -15,8 +15,14 @@ fn main() {
     // create DATE env variable for output in page
     let date_output = Command::new("date").output().expect("Failed to get date");
 
+    let uname_output = Command::new("uname")
+        .args(["-a"])
+        .output()
+        .expect("Failed to gather uname data");
+
     let git_hash = String::from_utf8(git_hash_output.stdout).expect("Failed to parse commit");
     let date = String::from_utf8(date_output.stdout).expect("Failed to parse date");
+    let uname = String::from_utf8(uname_output.stdout).expect("Failed to parse uname");
     let git_repo_raw = String::from_utf8(git_repo_output.stdout).expect("Failed to parse repo");
 
     let git_repo = git_repo_raw
@@ -27,6 +33,7 @@ fn main() {
 
     println!("cargo:rustc-env=GIT_HASH={git_hash}");
     println!("cargo:rustc-env=DATE={date}");
+    println!("cargo:rustc-env=UNAME={uname}");
     // set the base path to repo name if compiling on github actions
     if std::env::var("GITHUB_ACTIONS").is_ok() {
         println!("cargo::rustc-env=BASE_PATH=/{git_repo}");

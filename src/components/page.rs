@@ -53,15 +53,15 @@ pub fn Page() -> impl IntoView {
                 .child(Routes(props)),
             // footer
             footer()
-                .class("bg-background-ui dark:bg-background-ui-dark text-foreground dark:text-foreground-dark py-5")
+                .class("bg-background-ui dark:bg-background-ui-dark text-foreground dark:text-foreground-dark py-5 text-center")
                 .child((
                     p()
-                        .class("text-foreground dark:text-foreground-dark text-center")
                         .child(format!(
-                            "commit {} built on {}",
+                            "Commit {} built on {} by",
                             env!("GIT_HASH"),
-                            env!("DATE")
+                            env!("DATE"),
                         )),
+                        p().child(env!("UNAME"))
                 ))
         ))
         .on(ev::click, |data| leptos::logging::log!("{:?}", data))
