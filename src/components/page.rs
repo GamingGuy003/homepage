@@ -10,7 +10,10 @@ use leptos_router::{
     path,
 };
 
-use crate::components::{nav::Nav, pages::landing::Landing};
+use crate::components::{
+    nav::Nav,
+    pages::{about::About, landing::Landing, projects::p1::Project1},
+};
 
 #[component]
 pub fn Page() -> impl IntoView {
@@ -28,7 +31,12 @@ pub fn Page() -> impl IntoView {
                 }),
                 Route(RouteProps {
                     path: path!("/about"),
-                    view: Landing,
+                    view: About,
+                    ssr: leptos_router::SsrMode::OutOfOrder,
+                }),
+                Route(RouteProps {
+                    path: path!("/p1"),
+                    view: Project1,
                     ssr: leptos_router::SsrMode::OutOfOrder,
                 }),
             )
