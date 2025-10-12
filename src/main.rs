@@ -19,7 +19,7 @@ fn main() {
 // adds the appropriate base to a url
 pub fn based_url(url: &str) -> String {
     // add slash to start of uri if len > 0
-    let slashed = if url.len() > 0 && !url.starts_with('/') {
+    let slashed = if !url.is_empty() && !url.starts_with('/') {
         format!("/{url}")
     } else {
         url.to_owned()
