@@ -27,7 +27,7 @@ pub fn Nav() -> impl IntoView {
     });
 
     nav()
-        .class("fixed w-full top-0 left-0 h-14 bg-background-ui/50 dark:bg-background-ui-dark/50 backdrop-blur-md flex flex-col shadow-md")
+        .class("fixed w-full top-0 left-0 h-14 z-50 bg-background-ui/50 dark:bg-background-ui-dark/50 backdrop-blur-md flex flex-col shadow-md")
         .child((
             div()
                 .class("flex justify-between items-center h-full")
