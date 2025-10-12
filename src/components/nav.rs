@@ -6,6 +6,8 @@ use leptos::{
 use leptos_darkmode::Darkmode;
 use leptos_icons::Icon;
 
+use crate::based_url;
+
 #[component]
 pub fn Nav() -> impl IntoView {
     let mut darkmode = expect_context::<Darkmode>();
@@ -34,7 +36,7 @@ pub fn Nav() -> impl IntoView {
                         .class("flex items-center")
                         .child(
                             a()
-                                .href("/")
+                                .href(based_url("/"))
                                 .child(
                                     img()
                                         .class("block max-h-10 dark:brightness-85 transition-transform duration-100 hover:scale-95 active:scale-75")
