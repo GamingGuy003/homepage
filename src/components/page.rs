@@ -1,5 +1,4 @@
 use leptos::{
-    ev,
     html::{a, div, footer, p},
     prelude::*,
 };
@@ -10,9 +9,12 @@ use leptos_router::{
     path,
 };
 
-use crate::components::{
-    nav::Nav,
-    pages::{about::About, landing::Landing, projects::p1::Project1},
+use crate::{
+    based_url,
+    components::{
+        nav::Nav,
+        pages::{about::About, landing::Landing, projects::p1::Project1},
+    },
 };
 
 #[component]
@@ -55,7 +57,7 @@ pub fn Page() -> impl IntoView {
             footer()
                 .class("bg-background-ui dark:bg-background-ui-dark text-foreground dark:text-foreground-dark py-5 text-center")
                 .child((
-                    a().href("/about").child("About me"),
+                    a().href(based_url("/about")).child("About me"),
                     p()
                         .child(format!(
                             "Commit {} built on {} by",
@@ -65,7 +67,6 @@ pub fn Page() -> impl IntoView {
                     p().child(env!("UNAME")),
                 ))
         ))
-        .on(ev::click, |data| leptos::logging::log!("{:?}", data))
         // darkmode toggle
         .class(move || darkmode.is_dark().then_some("dark"))
 }
