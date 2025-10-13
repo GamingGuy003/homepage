@@ -60,7 +60,8 @@ pub fn Page() -> impl IntoView {
                     a().href(based_url("/about")).child("About me"),
                     p()
                         .child(format!(
-                            "Commit {} built on {} by",
+                            "v{} on Commit {} built on {} by",
+                            env!("CARGO_PKG_VERSION"),
                             env!("GIT_HASH"),
                             env!("DATE"),
                         )),
