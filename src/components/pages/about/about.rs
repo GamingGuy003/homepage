@@ -1,10 +1,12 @@
 use std::sync::Arc;
 
 use leptos::{
-    html::{a, div, img, p},
+    html::{a, div, p},
     prelude::*,
 };
 use leptos_icons::Icon;
+
+use crate::components::pages::about::{languages::Languages, card::{Card, CardProps}, images::Images};
 
 #[component]
 pub fn About() -> impl IntoView {
@@ -46,7 +48,7 @@ pub fn About() -> impl IntoView {
                                         )),
                                     Images(),
                                 )),
-                                p().class("text-center").child(
+                                p().class("text-xs text-center").child(
                                     "Also don't forget to say hi to dinguin, my little mascott!",
                                 ),
                             ))
@@ -74,7 +76,7 @@ pub fn About() -> impl IntoView {
                                     a()
                                         .href("https://github.com/GamingGuy003/homepage")
                                         .target("_blank")
-                                        .child("Github repo")
+                                        .child("Github Repo"),
                                 )),
                             )
                             .into_any()
@@ -158,189 +160,33 @@ pub fn About() -> impl IntoView {
                 .title("Languages")
                 .children(Arc::new(|| Languages().into_any()))
                 .build()
+            ),
+            Card(CardProps::builder()
+                .class(None)
+                .title("Privacy")
+                .children(Arc::new(|| 
+                    "In addition to the site being open source, I collect no data whatsover.
+                    The only information being stored is your theme preference in your browser".into_any()
+                ))
+                .build()
+            ),
+            Card(CardProps::builder()
+                .class(None)
+                .title("Cookies")
+                .children(Arc::new(|| 
+                    "This website does not use cookies in any form".into_any()
+                ))
+                .build()
+            ),
+            Card(CardProps::builder()
+                .class(None)
+                .title("Copyright")
+                .children(Arc::new(|| 
+                    "This website and its contents are my intellectual property".into_any()
+                ))
+                .build()
             )
         ))
 }
 
-#[component]
-pub fn Languages() -> impl IntoView {
-    div()
-        .child((
-            p().child(
-                "Over the years I have used quite a few programming languages,
-                here are some I am the most proficient with / like the most"
-            ),
-            div()
-                .class("p-5 relative")
-                .child((
-                    div()
-                        .class(
-                            "bg-gradient-to-t from-terminal-red
-                            via-terminal-yellow-dark to-terminal-green-dark relative h-[50vh] w-1
-                        ")
-                        .child(div()
-                            .class("absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/6 -rotate-90 origin-left whitespace-nowrap")
-                            .child("Enjoyment")),
-                    div()
-                        .class(
-                            "bg-gradient-to-r from-terminal-red via-terminal-yellow-dark
-                            to-terminal-green-dark h-1 w-full text-center"
-                        )
-                        .child("Knowledge"),
-                    div()
-                        .class("absolute bottom-[90%] left-[85%] -translate-x-1/2")
-                        .child("Rust")
-                        .title("Fun if you like fighting your compiler"),
-                    div()
-                        .class("absolute bottom-[30%] left-[65%] -translate-x-1/2")
-                        .child("JS")
-                        .title("Dynamic types will be humanities downfall"),
-                    div()
-                        .class("absolute bottom-[50%] left-[70%] -translate-x-1/2")
-                        .child("TS")
-                        .title("Can't be worse than JS"),
-                    div()
-                        .class("absolute bottom-[55%] left-[60%] -translate-x-1/2")
-                        .child("C")
-                        .title("Fun but requires 200IQ"),
-                    div()
-                        .class("absolute bottom-[40%] left-[50%] -translate-x-1/2")
-                        .child("CPP")
-                        .title("Bloated"),
-                    div()
-                        .class("absolute bottom-[60%] left-[35%] -translate-x-1/2")
-                        .child("Python")
-                        .title("Rarely used but fun if typed"),
-                    div()
-                        .class("absolute bottom-[60%] left-[75%] -translate-x-1/2")
-                        .child("Java")
-                        .title("Used lots, could be worse"),
-                    div()
-                        .class("absolute bottom-[80%] left-[20%] -translate-x-1/2")
-                        .child("Lua")
-                        .title("Rarely used"),
-                ))
-        ))
-}
 
-#[component]
-pub fn Card<'a>(title: &'a str, children: ChildrenFn, class: Option<&'a str>) -> impl IntoView {
-    div()
-        .class(format!("
-            rounded-md text-center h-full dark:bg-background-ui-dark
-            shadow-xl transition-transform duration-100 hover:scale-102
-            hover:bg-gradient-to-br
-            from-terminal-yellow-dark dark:from-terminal-purple-dark
-            via-terminal-orange dark:via-none
-            to-terminal-red-dark dark:to-terminal-azure-dark
-            p-0.75 {}", class.unwrap_or_default()
-        ))
-        .child(
-            div().class("h-full flex flex-col").child((
-                p().class(
-                    "
-                        text-foreground dark:text-foreground-dark bg-background-content
-                        dark:bg-background-ui-dark rounded-t-sm shadow-md p-3 font-semibold flex-none
-                    ",
-                )
-                .child(title),
-                div()
-                    .class(
-                        "
-                        bg-background-ui dark:bg-background-content-dark text-foreground
-                        dark:text-foreground-dark rounded-b-sm p-3 flex-1 text-justify shadow-md
-                    ",
-                    )
-                    .child(children()),
-            )),
-        )
-}
-
-#[component]
-pub fn Images() -> impl IntoView {
-    div()
-        .class("w-full flex flex-1 justify-center max-h-[50vh]")
-        .child(div()
-            .class("grid grid-cols-2 grid-rows-3 gap-3 aspect-square md:aspect-auto")
-            .child((
-                div()
-                    .class("relative overflow-hidden rounded-lg group col-span-2 w-full")
-                    .child((
-                        img()
-                            .class("h-full w-full rounded-lg shadow-md object-cover object-center")
-                            .src("./static/images/proxmox.png")
-                            .alt("Proxmox cluster overview"),
-                        div()
-                            .class(
-                                "absolute inset-0 flex items-center text-center justify-center
-                                text-foreground dark:text-foreground-dark text-xl font-semibold opacity-0
-                                bg-background-ui dark:bg-background-ui-dark text-shadow-xl p-5
-                                group-hover:opacity-75 transition duration-250")
-                            .child("Current cluster overview")
-                    )),
-                div()
-                    .class("relative overflow-hidden rounded-lg group")
-                    .child((
-                        img()
-                            .class("h-full w-full rounded-lg shadow-md object-cover object-center")
-                            .src("./static/images/keyboard.jpg")
-                            .alt("Keyboard and mouse on table"),
-                        div()
-                            .class(
-                                "absolute inset-0 flex items-center text-center justify-center
-                                text-foreground dark:text-foreground-dark text-xl font-semibold opacity-0
-                                bg-background-ui dark:bg-background-ui-dark text-shadow-xl p-5
-                                group-hover:opacity-75 transition duration-250")
-                            .child("Current keyboard")
-                    )),
-                div()
-                    .class("shadow-md rounded-lg relative overflow-hidden group flex w-full")
-                    .child((
-                        div()
-                            .class("grid grid-cols-2 grid-rows-2 gap-2 p-2 max-h-full place-items-center")
-                            .child((
-                                img()
-                                    .class("h-full aspect-square")
-                                    .src("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Fedora_logo.svg/2048px-Fedora_logo.svg.png")
-                                    .alt("Fedora my beloved"),
-                                img()
-                                    .class("h-full aspect-square")
-                                    .src("https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Arch_Linux_%22Crystal%22_icon.svg/2048px-Arch_Linux_%22Crystal%22_icon.svg.png")
-                                    .alt("Arch my first"),
-                                img()
-                                    .class("h-full aspect-square")
-                                    .class("h-full")
-                                    .src("https://upload.wikimedia.org/wikipedia/commons/1/19/Gentoo_Logo_Vector.svg")
-                                    .alt("Gentoo for maximum braindamage"),
-                                img()
-                                    .class("h-full aspect-square")
-                                    .src("https://avatars.githubusercontent.com/u/2678585?s=200&v=4")
-                                    .alt("Ol'reliable")
-                            )),
-                        div()
-                            .class(
-                                "absolute inset-0 flex items-center text-center justify-center
-                                text-foreground dark:text-foreground-dark text-xl font-semibold opacity-0
-                                bg-background-ui dark:bg-background-ui-dark text-shadow-xl p-5
-                                group-hover:opacity-75 transition duration-250")
-                            .child("Favorite distros")
-
-                    )),
-                div()
-                    .class("relative overflow-hidden rounded-lg group col-span-2")
-                    .child((
-                        img()
-                            .class("h-full w-full shadow-md col-span-2 rounded-lg object-cover object-center")
-                            .src("./static/images/germany.jpg")
-                            .alt("Germany"),
-                        div()
-                            .class(
-                                "absolute inset-0 flex items-center text-center justify-center
-                                text-foreground dark:text-foreground-dark text-xl font-semibold opacity-0
-                                bg-background-ui dark:bg-background-ui-dark text-shadow-xl p-5
-                                group-hover:opacity-75 transition duration-250")
-                            .child("Picture taken in Germany")
-                    ))
-            ))
-    )
-}
