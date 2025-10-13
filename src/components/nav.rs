@@ -48,7 +48,7 @@ pub fn Nav() -> impl IntoView {
                         .class(
                             "aspect-square flex align-center items-center w-12 xs:w-32
                             transition-transform duration-100 hover:scale-95 cursor-pointer
-                            text-foreground dark:text-foreground-dark px-2 m-2"
+                            text-foreground dark:text-foreground-dark px-2 py-3 m-2"
                         )
                         .child(
                             Icon(leptos_icons::IconProps {
