@@ -55,3 +55,7 @@ a {
     background-position: 0% 50%;
   }
 }
+
+* {
+  @apply transition-colors duration-250 ease-in-out;
+}
