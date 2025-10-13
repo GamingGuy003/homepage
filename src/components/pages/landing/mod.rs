@@ -14,7 +14,7 @@ use crate::{
 #[component]
 pub fn Landing() -> impl IntoView {
     div()
-        .class("mt-[15vh] grid gap-3 max-h-screen place-items-center")
+        .class("mt-[min(15vw,15vh)] grid gap-3 max-h-screen place-items-center")
         .child((
             div()
                 .class(
@@ -26,7 +26,7 @@ pub fn Landing() -> impl IntoView {
                 )
                 .child(
                     Icon(IconProps::builder().icon(icondata::LuTerminal).build())
-                        .attr("class", "text-foreground dark:text-foreground-dark w-[30vw] h-full -my-3 object-cover"),
+                        .attr("class", "text-foreground dark:text-foreground-dark h-[30vh] w-full -my-4 object-cover"),
                 ),
             Card(
                 CardProps::builder()
