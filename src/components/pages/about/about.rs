@@ -6,7 +6,11 @@ use leptos::{
 };
 use leptos_icons::Icon;
 
-use crate::components::pages::about::{languages::Languages, card::{Card, CardProps}, images::Images};
+use crate::components::pages::about::{
+    card::{Card, CardProps},
+    images::Images,
+    languages::Languages,
+};
 
 #[component]
 pub fn About() -> impl IntoView {
@@ -164,7 +168,7 @@ pub fn About() -> impl IntoView {
             Card(CardProps::builder()
                 .class(None)
                 .title("Privacy")
-                .children(Arc::new(|| 
+                .children(Arc::new(||
                     "In addition to the site being open source, I collect no data whatsover.
                     The only information being stored is your theme preference in your browser".into_any()
                 ))
@@ -173,7 +177,7 @@ pub fn About() -> impl IntoView {
             Card(CardProps::builder()
                 .class(None)
                 .title("Cookies")
-                .children(Arc::new(|| 
+                .children(Arc::new(||
                     "This website does not use cookies in any form".into_any()
                 ))
                 .build()
@@ -181,12 +185,10 @@ pub fn About() -> impl IntoView {
             Card(CardProps::builder()
                 .class(None)
                 .title("Copyright")
-                .children(Arc::new(|| 
+                .children(Arc::new(||
                     "This website and its contents are my intellectual property".into_any()
                 ))
                 .build()
             )
         ))
 }
-
-
