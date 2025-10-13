@@ -13,7 +13,7 @@ use crate::{
     based_url,
     components::{
         nav::Nav,
-        pages::{about::About, landing::Landing, projects::p1::Project1},
+        pages::{about::about::About, landing::landing::Landing, projects::p1::Project1},
     },
 };
 
@@ -22,7 +22,7 @@ pub fn Page() -> impl IntoView {
     provide_meta_context();
     let darkmode = Darkmode::init();
     let props = RoutesProps {
-        fallback: || "Route not found",
+        fallback: || "Route not found. Tough luck",
         transition: true,
         children: RouteChildren::to_children(|| {
             (
