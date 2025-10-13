@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use leptos::{
-    html::{a, button, div, img, p},
+    html::{a, div, img, p},
     prelude::*,
 };
 use leptos_icons::Icon;
@@ -31,12 +31,22 @@ pub fn About() -> impl IntoView {
                                                 and modifying keyboards although it is a pretty expensive
                                                 hobby sadly. In addition to my slight keyboard addiction,
                                                 I am also an avid linux user, having used most distros for
-                                                a while.",
+                                                a while."
                                             ),
+                                            p().child(
+                                                "As you can probably tell by what you've read so far, I
+                                                enjoy learning new skils and testing myself and my patience.
+                                                This has led me down quite a few rabbit holes, mainly IT
+                                                related. I manage my own little server cluster and also 
+                                                selfhost quite a few services like a cloud, password manager,
+                                                streaming site and various gameservers. While I do not claim
+                                                to be professional in any way, I do like to think that I know
+                                                my way around the digital world"
+                                            )
                                         )),
                                     Images(),
                                 )),
-                                p().child(
+                                p().class("text-center").child(
                                     "Also don't forget to say hi to dinguin, my little mascott!",
                                 ),
                             ))
@@ -50,13 +60,23 @@ pub fn About() -> impl IntoView {
                     .title("This page")
                     .children(Arc::new(|| {
                         div()
-                            .child(p().child(
-                                "This page has been written almost entirely using rust
-                                webassembly. This was done mostly for myself to have an excuse
-                                to waste some hours learning it, but it also comes with
-                                the upside of this page being built entirely without javascript.
-                                ",
-                            ))
+                            .child(
+                                p().child((
+                                    "This page has been written almost entirely using rust
+                                    webassembly. This was done mostly for myself to have an excuse
+                                    to waste some hours learning it, but it also comes with
+                                    the upside of this page being built entirely without javascript
+                                    which should bring joy to the fellow JS haters out there. In addition
+                                    to that, the page also gets automatically redeployed whenever any
+                                    changes are made. Thus the build timestamp at the bottom of the page
+                                    will always be the time of the last page update. If you are interested
+                                    in the way this page is built / deployed, go look at the ",
+                                    a()
+                                        .href("https://github.com/GamingGuy003/homepage")
+                                        .target("_blank")
+                                        .child("Github repo")
+                                )),
+                            )
                             .into_any()
                     }))
                     .build(),
@@ -75,11 +95,13 @@ pub fn About() -> impl IntoView {
                                 div()
                                     .class("grid grid-cols-2 grid-rows-2 gap-3 py-3")
                                     .child((
-                                        button()
+                                        a()
                                             .class(
-                                                "rounded-md bg-background-content dark:bg-background-ui-dark p-1 shadow-md flex
-                                                transition-transform duration-100 hover:scale-95 active:scale-75 px-5"
+                                                "flex flex-row justify-center gap-3 rounded-md bg-background-content dark:bg-background-ui-dark
+                                                py-2 shadow-md transition-transform duration-100 hover:scale-95"
                                             )
+                                            .href("https://github.com/GamingGuy003")
+                                            .target("_blank")
                                             .child((
                                                 Icon(leptos_icons::IconProps {
                                                     icon: Signal::derive(|| icondata::LuGithub),
@@ -88,17 +110,15 @@ pub fn About() -> impl IntoView {
                                                     height: MaybeProp::default(),
                                                 })
                                                 .attr("class", "h-full"),
-                                                a()
-                                                    .class("w-full")
-                                                    .href("https://github.com/GamingGuy003")
-                                                    .target("_blank")
-                                                    .child("Github"),
+                                                "Github"
                                             )),
-                                        button()
+                                        a()
                                             .class(
-                                                "rounded-md bg-background-content dark:bg-background-ui-dark p-1 shadow-md flex
-                                                transition-transform duration-100 hover:scale-95 active:scale-75 px-5"
+                                                "flex flex-row justify-center gap-3 rounded-md bg-background-content dark:bg-background-ui-dark
+                                                py-2 shadow-md transition-transform duration-100 hover:scale-95"
                                             )
+                                            .href("mailto:bjhell@unibz.it")
+                                            .target("_blank")
                                             .child((
                                                 Icon(leptos_icons::IconProps {
                                                     icon: Signal::derive(|| icondata::LuMail),
@@ -107,17 +127,15 @@ pub fn About() -> impl IntoView {
                                                     height: MaybeProp::default(),
                                                 })
                                                 .attr("class", "h-full"),
-                                                a()
-                                                    .class("w-full")
-                                                    .href("mailto:bjhell@unibz.it")
-                                                    .target("_blank")
-                                                    .child("Email")
+                                                "Email"
                                             )),
-                                        button()
+                                        a()
                                             .class(
-                                                "rounded-md bg-background-content dark:bg-background-ui-dark p-1 shadow-md flex
-                                                transition-transform duration-100 hover:scale-95 active:scale-75 px-5"
+                                                "flex flex-row justify-center gap-3 rounded-md bg-background-content dark:bg-background-ui-dark
+                                                py-2 shadow-md transition-transform duration-100 hover:scale-95"
                                             )
+                                            .href("https://open.spotify.com/user/5rh4hrchdlrl1uhmc3lqqcia1")
+                                            .target("_blank")
                                             .child((
                                                 Icon(leptos_icons::IconProps {
                                                     icon: Signal::derive(|| icondata::ImSpotify),
@@ -126,12 +144,8 @@ pub fn About() -> impl IntoView {
                                                     height: MaybeProp::default(),
                                                 })
                                                 .attr("class", "h-full"),
-                                                a()
-                                                    .class("w-full")
-                                                    .href("https://open.spotify.com/user/5rh4hrchdlrl1uhmc3lqqcia1")
-                                                    .target("_blank")
-                                                    .child("Spotify")
-                                            ))
+                                                "Spotify"
+                                            )),
                                     )),
                                 p().class("text-xs").child("I will do my best to respond within 24 hours!"),
                             ))
@@ -247,13 +261,28 @@ pub fn Images() -> impl IntoView {
     div()
         .class("w-full flex flex-1 justify-center max-h-[50vh]")
         .child(div()
-            .class("grid grid-cols-2 grid-rows-2 gap-3 ")
+            .class("grid grid-cols-2 grid-rows-3 gap-3 aspect-square md:aspect-auto")
             .child((
+                div()
+                    .class("relative overflow-hidden rounded-lg group col-span-2 w-full")
+                    .child((
+                        img()
+                            .class("h-full w-full rounded-lg shadow-md object-cover object-center")
+                            .src("./static/images/proxmox.png")
+                            .alt("Proxmox cluster overview"),
+                        div()
+                            .class(
+                                "absolute inset-0 flex items-center text-center justify-center
+                                text-foreground dark:text-foreground-dark text-xl font-semibold opacity-0
+                                bg-background-ui dark:bg-background-ui-dark text-shadow-xl p-5
+                                group-hover:opacity-75 transition duration-250")
+                            .child("Current cluster overview")
+                    )),
                 div()
                     .class("relative overflow-hidden rounded-lg group")
                     .child((
                         img()
-                            .class("h-full rounded-lg shadow-md object-cover object-center")
+                            .class("h-full w-full rounded-lg shadow-md object-cover object-center")
                             .src("./static/images/keyboard.jpg")
                             .alt("Keyboard and mouse on table"),
                         div()
@@ -265,10 +294,10 @@ pub fn Images() -> impl IntoView {
                             .child("Current keyboard")
                     )),
                 div()
-                    .class("shadow-md rounded-lg relative overflow-hidden group flex")
+                    .class("shadow-md rounded-lg relative overflow-hidden group flex w-full")
                     .child((
                         div()
-                            .class("grid grid-cols-2 grid-rows-2 gap-2 p-2 max-h-full")
+                            .class("grid grid-cols-2 grid-rows-2 gap-2 p-2 max-h-full place-items-center")
                             .child((
                                 img()
                                     .class("h-full aspect-square")
