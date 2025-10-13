@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use leptos::{
-    html::{a, div, p},
+    html::{a, div, img, p},
     prelude::*,
 };
 use leptos_icons::Icon;
@@ -163,8 +163,27 @@ pub fn About() -> impl IntoView {
                     }))
                     .build(),
             ),
+Card(CardProps::builder()
+                .class(Some("col-span-1 md:col-span-2 lg:col-span-1"))
+                .title("Languages")
+                .children(Arc::new(|| div()
+                        .class("flex flex-row lg:flex-col align-items-center")
+                        .child((
+                            p().class("w-full").child(
+                                "This is Dinguin, my mascott. It was an attempt I made a while ago at
+                                drawing the Linux Tux. Since then it has been many places, including my
+                                Github, which it has declared its permanent home. Now its domain is expanding
+                                onto this website. Be nice to him!"
+                            ),
+                            img()
+                                .class("w-[50vw] h-full aspect-square object-cover")
+                                .src("./static/images/profile.png")
+                                .alt("Dinguin")
+                    )).into_any()))
+                .build()
+            ),
             Card(CardProps::builder()
-                .class(Some("col-span-1 md:col-span-2 lg:col-span-3"))
+                .class(Some("col-span-1 md:col-span-2"))
                 .title("Languages")
                 .children(Arc::new(|| Languages().into_any()))
                 .build()

@@ -16,7 +16,7 @@ pub fn Languages() -> impl IntoView {
                     div()
                         .class(
                             "bg-gradient-to-t from-terminal-red
-                            via-terminal-yellow-dark to-terminal-green-dark relative h-[50vh] w-1
+                            via-terminal-yellow-dark to-terminal-green-dark relative h-[min(50vh,50vw)] w-1
                         ")
                         .child(div()
                             .class("absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/6 -rotate-90 origin-left whitespace-nowrap")
