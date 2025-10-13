@@ -26,7 +26,7 @@ pub fn Landing() -> impl IntoView {
                 )
                 .child(
                     Icon(IconProps::builder().icon(icondata::LuTerminal).build())
-                        .attr("class", "text-foreground dark:text-foreground-dark h-[30vh] w-full -my-4 object-cover"),
+                        .attr("class", "text-foreground dark:text-foreground-dark h-[min(30vh, 50vw)] w-full -my-4 object-cover"),
                 ),
             Card(
                 CardProps::builder()
