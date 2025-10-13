@@ -167,7 +167,7 @@ Card(CardProps::builder()
                 .class(Some("col-span-1 md:col-span-2 lg:col-span-1"))
                 .title("About dinguin")
                 .children(Arc::new(|| div()
-                        .class("flex flex-row lg:flex-col align-items-center")
+                        .class("flex flex-row lg:flex-col")
                         .child((
                             p().class("w-full").child(
                                 "This is Dinguin, my mascott. It was an attempt I made a while ago at
@@ -176,7 +176,7 @@ Card(CardProps::builder()
                                 onto this website. Be nice to it!"
                             ),
                             img()
-                                .class("w-[50vw] h-full aspect-square object-cover")
+                                .class("size-[min(33vw,33vh)] object-cover self-center")
                                 .src("./static/images/profile.png")
                                 .alt("Dinguin")
                     )).into_any()))
