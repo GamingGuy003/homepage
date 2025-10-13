@@ -165,7 +165,7 @@ pub fn About() -> impl IntoView {
             ),
 Card(CardProps::builder()
                 .class(Some("col-span-1 md:col-span-2 lg:col-span-1"))
-                .title("Languages")
+                .title("About dinguin")
                 .children(Arc::new(|| div()
                         .class("flex flex-row lg:flex-col align-items-center")
                         .child((
