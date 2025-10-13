@@ -13,7 +13,7 @@ use crate::{
     based_url,
     components::{
         nav::Nav,
-        pages::{about::about::About, landing::landing::Landing, projects::p1::Project1},
+        pages::{about::About, landing::Landing, projects::p1::Project1},
     },
 };
 
