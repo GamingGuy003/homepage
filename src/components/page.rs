@@ -51,7 +51,10 @@ pub fn Page() -> impl IntoView {
             Nav(),
             // content
             div()
-                .class("p-5 pt-19 min-h-screen bg-background-content dark:bg-background-content-dark text-foreground dark:text-foreground-dark")
+                .class(
+                    "p-5 pt-19 min-h-screen
+                    bg-background-content dark:bg-background-content-dark text-foreground dark:text-foreground-dark"
+                )
                 .child(Routes(props)),
             // footer
             footer()
