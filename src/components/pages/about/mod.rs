@@ -173,7 +173,7 @@ Card(CardProps::builder()
                                 "This is Dinguin, my mascott. It was an attempt I made a while ago at
                                 drawing the Linux Tux. Since then it has been many places, including my
                                 Github, which it has declared its permanent home. Now its domain is expanding
-                                onto this website. Be nice to him!"
+                                onto this website. Be nice to it!"
                             ),
                             img()
                                 .class("w-[50vw] h-full aspect-square object-cover")
