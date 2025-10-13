@@ -77,7 +77,7 @@ pub fn About() -> impl IntoView {
                                     .child((
                                         button()
                                             .class(
-                                                "rounded-md bg-background-ui dark:bg-background-ui-dark p-1 shadow-md flex
+                                                "rounded-md bg-background-content dark:bg-background-ui-dark p-1 shadow-md flex
                                                 transition-transform duration-100 hover:scale-95 active:scale-75 px-5"
                                             )
                                             .child((
@@ -96,7 +96,7 @@ pub fn About() -> impl IntoView {
                                             )),
                                         button()
                                             .class(
-                                                "rounded-md bg-background-ui dark:bg-background-ui-dark p-1 shadow-md flex
+                                                "rounded-md bg-background-content dark:bg-background-ui-dark p-1 shadow-md flex
                                                 transition-transform duration-100 hover:scale-95 active:scale-75 px-5"
                                             )
                                             .child((
@@ -115,7 +115,7 @@ pub fn About() -> impl IntoView {
                                             )),
                                         button()
                                             .class(
-                                                "rounded-md bg-background-ui dark:bg-background-ui-dark p-1 shadow-md flex
+                                                "rounded-md bg-background-content dark:bg-background-ui-dark p-1 shadow-md flex
                                                 transition-transform duration-100 hover:scale-95 active:scale-75 px-5"
                                             )
                                             .child((
@@ -161,20 +161,17 @@ pub fn Languages() -> impl IntoView {
                 .child((
                     div()
                         .class(
-                            "bg-gradient-to-t from-terminal-red dark:from-terminal-green-red
-                            via-terminal-yellow dark:via-terminal-yellow-dark relative
-                            to-terminal-green dark:to-terminal-green-dark h-[50vh] w-1
+                            "bg-gradient-to-t from-terminal-red
+                            via-terminal-yellow-dark to-terminal-green-dark relative h-[50vh] w-1
                         ")
                         .child(div()
                             .class("absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/6 -rotate-90 origin-left whitespace-nowrap")
                             .child("Enjoyment")),
                     div()
                         .class(
-                            "bg-gradient-to-r from-terminal-red dark:from-terminal-green-red
-                            via-terminal-yellow dark:via-terminal-yellow-dark
-                            to-terminal-green dark:to-terminal-green-dark h-1 w-full
-                            text-center
-                        ")
+                            "bg-gradient-to-r from-terminal-red via-terminal-yellow-dark
+                            to-terminal-green-dark h-1 w-full text-center"
+                        )
                         .child("Knowledge"),
                     div()
                         .class("absolute bottom-[90%] left-[85%] -translate-x-1/2")
@@ -208,20 +205,20 @@ pub fn Languages() -> impl IntoView {
 pub fn Card<'a>(title: &'a str, children: ChildrenFn, class: Option<&'a str>) -> impl IntoView {
     div()
         .class(format!("
-            rounded-md text-center h-full
+            rounded-md text-center h-full dark:bg-background-ui-dark
             shadow-xl transition-transform duration-100 hover:scale-102
-            bg-gradient-to-tl hover:bg-gradient-to-br
-            from-terminal-red dark:from-terminal-purple-dark
+            hover:bg-gradient-to-br
+            from-terminal-yellow-dark dark:from-terminal-purple-dark
             via-terminal-orange dark:via-none
-            to-terminal-yellow-dark dark:to-terminal-azure-dark
+            to-terminal-red-dark dark:to-terminal-azure-dark
             p-0.75 {}", class.unwrap_or_default()
         ))
         .child(
-            div().class("h-full flex flex-col shadow-xl").child((
+            div().class("h-full flex flex-col").child((
                 p().class(
                     "
                         text-foreground dark:text-foreground-dark bg-background-content
-                        dark:bg-background-ui-dark rounded-t-sm shadow-xl p-3 font-semibold flex-none
+                        dark:bg-background-ui-dark rounded-t-sm shadow-md p-3 font-semibold flex-none
                     ",
                 )
                 .child(title),
@@ -229,7 +226,7 @@ pub fn Card<'a>(title: &'a str, children: ChildrenFn, class: Option<&'a str>) ->
                     .class(
                         "
                         bg-background-ui dark:bg-background-content-dark text-foreground
-                        dark:text-foreground-dark rounded-b-sm p-3 flex-1 text-justify
+                        dark:text-foreground-dark rounded-b-sm p-3 flex-1 text-justify shadow-md
                     ",
                     )
                     .child(children()),
@@ -255,8 +252,8 @@ pub fn Images() -> impl IntoView {
                             .class(
                                 "absolute inset-0 flex items-center text-center justify-center
                                 text-foreground dark:text-foreground-dark text-xl font-semibold opacity-0
-                                bg-background-ui dark:bg-background-ui-dark
-                                group-hover:opacity-50 transition duration-250")
+                                bg-background-ui dark:bg-background-ui-dark text-shadow-xl p-5
+                                group-hover:opacity-75 transition duration-250")
                             .child("Current keyboard")
                     )),
                 div()
@@ -287,8 +284,8 @@ pub fn Images() -> impl IntoView {
                             .class(
                                 "absolute inset-0 flex items-center text-center justify-center
                                 text-foreground dark:text-foreground-dark text-xl font-semibold opacity-0
-                                bg-background-ui dark:bg-background-ui-dark
-                                group-hover:opacity-50 transition duration-250")
+                                bg-background-ui dark:bg-background-ui-dark text-shadow-xl p-5
+                                group-hover:opacity-75 transition duration-250")
                             .child("Favorite distros")
 
                     )),
@@ -303,8 +300,8 @@ pub fn Images() -> impl IntoView {
                             .class(
                                 "absolute inset-0 flex items-center text-center justify-center
                                 text-foreground dark:text-foreground-dark text-xl font-semibold opacity-0
-                                bg-background-ui dark:bg-background-ui-dark
-                                group-hover:opacity-50 transition duration-250")
+                                bg-background-ui dark:bg-background-ui-dark text-shadow-xl p-5
+                                group-hover:opacity-75 transition duration-250")
                             .child("Picture taken in Germany")
                     ))
             ))
