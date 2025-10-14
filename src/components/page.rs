@@ -13,7 +13,7 @@ use crate::{
     based_url,
     components::{
         nav::Nav,
-        pages::{about::About, landing::Landing, projects::p1::Project1},
+        pages::{about::About, landing::Landing, projects::Projects},
     },
 };
 
@@ -37,8 +37,8 @@ pub fn Page() -> impl IntoView {
                     ssr: leptos_router::SsrMode::OutOfOrder,
                 }),
                 Route(RouteProps {
-                    path: path!("/p1"),
-                    view: Project1,
+                    path: path!("/projects"),
+                    view: Projects,
                     ssr: leptos_router::SsrMode::OutOfOrder,
                 }),
             )
