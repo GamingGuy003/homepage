@@ -69,9 +69,9 @@ pub fn Nav() -> impl IntoView {
                 .class("
                     [&::-moz-progress-bar]:rounded-full absolute bottom-0 left-0 w-full h-0.5
                     [&::-moz-progress-bar]:bg-gradient-to-r [&::-moz-progress-bar]:from-terminal-orange [&::-moz-progress-bar]:to-terminal-red bg-background-ui
-                    [&::-webkit-progress-bar]:bg-gradient-to-r [&::-webkit-progress-bar]:from-terminal-orange [&::-webkit-progress-bar]:to-terminal-red bg-background-ui
+                    [&::-webkit-progress-inner-element]:bg-gradient-to-r [&::-webkit-progress-inner-element]:from-terminal-orange [&::-webkit-progress-inner-element]:to-terminal-red bg-background-ui
                     dark:[&::-moz-progress-bar]:bg-gradient-to-r dark:[&::-moz-progress-bar]:from-terminal-azure-dark dark:[&::-moz-progress-bar]:to-terminal-purple-dark dark:bg-background-ui-dark
-                    dark:[&::-webkit-progress-bar]:bg-gradient-to-r dark:[&::-webkit-progress-bar]:from-terminal-azure-dark dark:[&::-webkit-progress-bar]:to-terminal-purple-dark dark:bg-background-ui-dark"
+                    dark:[&::-webkit-progress-inner-element]:bg-gradient-to-r dark:[&::-webkit-progress-inner-element]:from-terminal-azure-dark dark:[&::-webkit-progress-inner-element]:to-terminal-purple-dark dark:bg-background-ui-dark"
                 )
                 .max(100)
                 .value(move || scrollprogress.get()),
