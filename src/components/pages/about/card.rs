@@ -7,7 +7,7 @@ pub fn Card<'a>(title: &'a str, children: ChildrenFn, class: Option<&'a str>) ->
     div()
         .class(format!("
             rounded-md text-center h-full dark:bg-background-ui-dark
-            shadow-xl transition-transform duration-100 hover:scale-102
+            shadow-xl transition-transform duration:500 hover:scale-102
             hover:bg-gradient-to-br
             from-terminal-yellow-dark dark:from-terminal-purple-dark
             via-terminal-orange dark:via-none
