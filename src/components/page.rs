@@ -61,7 +61,7 @@ pub fn Page() -> impl IntoView {
             // content
             div()
                 .class(
-                    "p-5 pt-19 h-screen
+                    "p-5 pt-19 min-h-screen flex flex-col
                     bg-background-content dark:bg-background-content-dark text-foreground dark:text-foreground-dark"
                 )
                 .child(Routes(props)),
