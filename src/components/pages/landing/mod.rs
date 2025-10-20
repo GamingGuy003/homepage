@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use leptos::{
-    html::{a, div, p},
+    html::{a, br, div, p},
     prelude::*,
 };
 use leptos_icons::{Icon, IconProps};
@@ -34,7 +34,7 @@ pub fn Landing() -> impl IntoView {
                     .title("Welcome")
                     .children(Arc::new(|| {
                         p().class("text-center")
-                            .child("Welcome to my homepage! Feel free to have a look around")
+                            .child(("Welcome to my homepage! Feel free to have a look around.", br(), "I am not a frontend dev"))
                             .into_any()
                     }))
                     .build(),
