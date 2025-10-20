@@ -1,24 +1,23 @@
-use leptos::prelude::*;
-
 #[allow(dead_code)]
+#[derive(Clone)]
 /// data associated with a project
 pub struct Project {
     /// the name of the project
     title: String,
     /// the image displayed on the project card
     image: String,
-    /// the body of the project article
-    body: AnyView,
+    /// where to redirect to on click
+    uri: String,
 }
 
 #[allow(dead_code)]
 impl Project {
     /// creates a new project struct from the provided data
-    pub fn new(title: &str, image: &str, body: AnyView) -> Self {
+    pub fn new(title: &str, image: String, uri: String) -> Self {
         Self {
             title: title.to_owned(),
-            image: image.to_owned(),
-            body,
+            image,
+            uri,
         }
     }
 
@@ -33,7 +32,7 @@ impl Project {
     }
 
     /// fetch the body
-    pub fn get_body(&self) -> &AnyView {
-        self.body.as_borrowed()
+    pub fn get_uri(&self) -> String {
+        self.uri.clone()
     }
 }
