@@ -13,7 +13,11 @@ use crate::{
     based_url,
     components::{
         nav::Nav,
-        pages::{about::About, landing::Landing, projects::Projects},
+        pages::{
+            about::About,
+            landing::Landing,
+            projects::{Projects, project_view::ProjectView},
+        },
     },
 };
 
@@ -41,6 +45,11 @@ pub fn Page() -> impl IntoView {
                     view: Projects,
                     ssr: leptos_router::SsrMode::OutOfOrder,
                 }),
+                Route(RouteProps {
+                    path: path!("/projects/:file"),
+                    view: ProjectView,
+                    ssr: leptos_router::SsrMode::OutOfOrder,
+                }),
             )
         }),
     };
@@ -52,7 +61,7 @@ pub fn Page() -> impl IntoView {
             // content
             div()
                 .class(
-                    "p-5 pt-19 min-h-screen
+                    "p-5 pt-19 h-screen
                     bg-background-content dark:bg-background-content-dark text-foreground dark:text-foreground-dark"
                 )
                 .child(Routes(props)),
