@@ -1,7 +1,4 @@
-use leptos::{
-    html::{div, iframe},
-    prelude::*,
-};
+use leptos::{html::iframe, prelude::*};
 use leptos_router::{hooks::use_params, params::Params};
 
 use crate::based_url;
@@ -22,9 +19,7 @@ pub fn ProjectView() -> impl IntoView {
             .and_then(|params| params.file.clone())
             .unwrap_or_default()
     };
-    div().class("h-full bg-red").child(
-        iframe()
-            .class("w-full h-full rounded-xl shadow-xl")
-            .src(based_url(&format!("./static/projects/{}", file()))),
-    )
+    iframe()
+        .class("w-full rounded-xl shadow-xl flex-1 relative")
+        .src(based_url(&format!("./static/projects/{}", file())))
 }
