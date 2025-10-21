@@ -20,6 +20,6 @@ pub fn ProjectView() -> impl IntoView {
             .unwrap_or_default()
     };
     iframe()
-        .class("w-full rounded-xl shadow-xl flex-1 relative")
+        .class("w-full -m-5 w-screen shadow-xl flex-1 relative")
         .src(based_url(&format!("./static/projects/{}", file())))
 }
