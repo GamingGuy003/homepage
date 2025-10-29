@@ -59,6 +59,10 @@ pub fn Languages() -> impl IntoView {
                         .class("absolute bottom-[80%] left-[20%] -translate-x-1/2")
                         .child("Lua")
                         .title("Rarely used"),
+                    div()
+                        .class("absolute bottom-[50%] left-[40%] -translate-x-1/2")
+                        .child("PHP")
+                        .title("No bueno")
                 ))
         ))
 }
