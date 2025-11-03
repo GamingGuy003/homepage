@@ -81,5 +81,5 @@ pub fn Page() -> impl IntoView {
                 ))
         ))
         // darkmode toggle
-        .class(move || format!("select-none {}", darkmode.is_dark().then_some("dark").unwrap_or_default()))
+        .class(move || format!("select-none {}", if darkmode.is_dark() { "dark" } else { Default::default() }))
 }
