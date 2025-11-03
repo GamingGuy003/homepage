@@ -45,7 +45,7 @@ pub fn About() -> impl IntoView {
                                             ),
                                             p().child(
                                                 "As you can probably tell by what you've read so far, I
-                                                enjoy learning new skils and testing myself and my patience.
+                                                enjoy learning new skills and testing myself and my patience.
                                                 This has led me down quite a few rabbit holes, mainly IT
                                                 related. I manage my own little server cluster and also 
                                                 selfhost quite a few services like a cloud, password manager,
