@@ -41,6 +41,7 @@ pub fn Landing() -> impl IntoView {
                             ))
                             .into_any()
                     }))
+                    .hover(false)
                     .build(),
             ),
             a().class("w-full h-full")
@@ -52,6 +53,7 @@ pub fn Landing() -> impl IntoView {
                         .children(Arc::new(|| {
                             "Some information about me and this website".into_any()
                         }))
+                        .hover(true)
                         .build(),
                 )),
             a().class("w-full h-full")
@@ -63,6 +65,7 @@ pub fn Landing() -> impl IntoView {
                         .children(Arc::new(|| {
                             "Projects I have worked or am still working on".into_any()
                         }))
+                        .hover(true)
                         .build(),
                 )),
         ))
