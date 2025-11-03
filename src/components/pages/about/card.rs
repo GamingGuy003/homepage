@@ -3,16 +3,23 @@ use leptos::prelude::*;
 use leptos::html::{div, p};
 
 #[component]
-pub fn Card<'a>(title: &'a str, children: ChildrenFn, class: Option<&'a str>) -> impl IntoView {
+pub fn Card<'a>(
+    title: &'a str,
+    children: ChildrenFn,
+    class: Option<&'a str>,
+    hover: bool,
+) -> impl IntoView {
     div()
         .class(format!("
             rounded-md text-center h-full dark:bg-background-ui-dark
-            shadow-xl transition-transform duration:500 hover:scale-102
-            hover:bg-gradient-to-br
-            from-terminal-yellow-dark dark:from-terminal-purple-dark
+            shadow-x from-terminal-yellow-dark dark:from-terminal-purple-dark
             via-terminal-orange dark:via-none
             to-terminal-red-dark dark:to-terminal-azure-dark
-            p-0.75 {}", class.unwrap_or_default()
+            p-0.75 {} {}",
+            class.unwrap_or_default(),
+            hover
+                .then_some("transition-transform duration:500 hover:scale-102 hover:bg-gradient-to-br")
+                .unwrap_or_default()
         ))
         .child(
             div().class("h-full flex flex-col").child((

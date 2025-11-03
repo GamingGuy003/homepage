@@ -62,6 +62,7 @@ pub fn About() -> impl IntoView {
                             ))
                             .into_any()
                     }))
+                    .hover(true)
                     .build(),
             ),
             Card(
@@ -89,6 +90,7 @@ pub fn About() -> impl IntoView {
                             )
                             .into_any()
                     }))
+                    .hover(true)
                     .build(),
             ),
             Card(
@@ -161,6 +163,7 @@ pub fn About() -> impl IntoView {
                             ))
                             .into_any()
                     }))
+                    .hover(true)
                     .build(),
             ),
 Card(CardProps::builder()
@@ -180,12 +183,14 @@ Card(CardProps::builder()
                                 .src("./static/images/profile.png")
                                 .alt("Dinguin")
                     )).into_any()))
+                .hover(true)
                 .build()
             ),
             Card(CardProps::builder()
                 .class(Some("col-span-1 md:col-span-2"))
                 .title("Languages")
                 .children(Arc::new(|| Languages().into_any()))
+                .hover(true)
                 .build()
             ),
             Card(CardProps::builder()
@@ -195,6 +200,7 @@ Card(CardProps::builder()
                     "In addition to the site being open source, I collect no data whatsover.
                     The only information being stored is your theme preference in your browser".into_any()
                 ))
+                .hover(true)
                 .build()
             ),
             Card(CardProps::builder()
@@ -203,6 +209,7 @@ Card(CardProps::builder()
                 .children(Arc::new(||
                     "This website does not use cookies in any form".into_any()
                 ))
+                .hover(true)
                 .build()
             ),
             Card(CardProps::builder()
@@ -211,6 +218,7 @@ Card(CardProps::builder()
                 .children(Arc::new(||
                     "This website and its contents are my intellectual property".into_any()
                 ))
+                .hover(true)
                 .build()
             )
         ))
