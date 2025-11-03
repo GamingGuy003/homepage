@@ -7,10 +7,13 @@ pub fn Images() -> impl IntoView {
     div()
         .class("w-full flex flex-1 justify-center max-h-[50vh]")
         .child(div()
-            .class("grid grid-cols-2 grid-rows-3 gap-3 aspect-square md:aspect-auto")
+            .class("grid grid-cols-2 grid-rows-3 gap-3 aspect-square md:aspect-auto relative")
             .child((
                 div()
-                    .class("relative overflow-hidden rounded-lg group col-span-2 w-full shadow-xl")
+                    .class(
+                        "relative overflow-hidden rounded-lg group col-span-2 w-full shadow-xl
+                        transition-transform duration:250 hover:scale-175 hover:z-100"
+                    )
                     .child((
                         img()
                             .class("h-full w-full rounded-lg object-cover object-center")
@@ -25,7 +28,10 @@ pub fn Images() -> impl IntoView {
                             .child("Current cluster overview")
                     )),
                 div()
-                    .class("relative overflow-hidden rounded-lg group shadow-xl")
+                    .class(
+                        "relative overflow-hidden rounded-lg group shadow-xl
+                        transition-transform duration:250 hover:scale-175 hover:z-100"
+                    )
                     .child((
                         img()
                             .class("h-full w-full rounded-lg object-cover object-center")
@@ -40,10 +46,13 @@ pub fn Images() -> impl IntoView {
                             .child("Current keyboard")
                     )),
                 div()
-                    .class("shadow-md rounded-lg relative overflow-hidden group flex w-full")
+                    .class(
+                        "shadow-md rounded-lg relative overflow-hidden group flex w-full
+                        transition-transform duration:250 hover:scale-175 hover:z-100"
+                    )
                     .child((
                         div()
-                            .class("grid grid-cols-2 grid-rows-2 gap-2 p-2 max-h-full place-items-center")
+                            .class("grid grid-cols-2 grid-rows-2 gap-2 p-2 max-h-full place-items-center bg-background-ui dark:bg-background-content-dark")
                             .child((
                                 img()
                                     .class("h-full aspect-square")
@@ -73,7 +82,10 @@ pub fn Images() -> impl IntoView {
 
                     )),
                 div()
-                    .class("relative overflow-hidden rounded-lg group col-span-2 shadow-xl")
+                    .class(
+                        "relative overflow-hidden rounded-lg group col-span-2 shadow-xl
+                        transition-transform duration:250 hover:scale-175 hover:z-100"
+                    )
                     .child((
                         img()
                             .class("h-full w-full col-span-2 rounded-lg object-cover object-center")
