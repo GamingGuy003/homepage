@@ -17,9 +17,7 @@ pub fn Card<'a>(
             to-terminal-red-dark dark:to-terminal-azure-dark
             p-0.75 {} {}",
             class.unwrap_or_default(),
-            hover
-                .then_some("transition-transform duration:500 hover:scale-102 hover:bg-gradient-to-br")
-                .unwrap_or_default()
+            if hover { "transition-transform duration:500 hover:scale-102 hover:bg-gradient-to-br" } else { Default::default() }
         ))
         .child(
             div().class("h-full flex flex-col").child((
