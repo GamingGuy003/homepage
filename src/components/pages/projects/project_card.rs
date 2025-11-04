@@ -23,16 +23,16 @@ pub fn ProjectCard<'a>(project: &'a Project, class: Option<&'a str>) -> impl Int
         div()
             .class(
                 "relative group h-full flex flex-col rounded-sm shadow-md
-                    bg:bg-background-content dark:bg-background-content-dark overflow-hidden",
+                bg:bg-background-content dark:bg-background-content-dark overflow-hidden",
             )
             .child((
                 img().src(project.get_image()).alt(project.get_title()),
                 div()
                     .class(
-                        "absolute bottom-0 left-0 w-full transition-all duration-1050 ease-in-out
-                            group-hover:h-full
-                            bg-background-ui/50 dark:bg-background-content-dark/50 backdrop-blur-md
-                            py-3 flex items-center justify-center",
+                        "absolute bottom-0 left-0 w-full transition-all duration-250 ease-in-out
+                        group-hover:h-full group-hover:text-xl group-hover:font-bold
+                        bg-background-ui/50 dark:bg-background-content-dark/50 backdrop-blur-md
+                        py-3 flex items-center justify-center",
                     )
                     .child(project.get_title()),
             )),
