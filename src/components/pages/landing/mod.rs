@@ -1,10 +1,12 @@
 use std::sync::Arc;
 
 use leptos::{
+    ev,
     html::{a, br, div, p},
     prelude::*,
 };
 use leptos_icons::{Icon, IconProps};
+use leptos_router::hooks::use_navigate;
 
 use crate::{
     based_url,
@@ -28,22 +30,30 @@ pub fn Landing() -> impl IntoView {
                     Icon(IconProps::builder().icon(icondata::LuTerminal).build())
                         .attr("class", "text-foreground dark:text-foreground-dark h-[min(30vh,50vw)] w-full -my-3 object-cover"),
                 ),
-            Card(
-                CardProps::builder()
-                    .class(Some("col-span-1 md:col-span-2 w-full"))
-                    .title("Welcome")
-                    .children(Arc::new(|| {
-                        p().class("text-center")
-                            .child((
-                                "Welcome to my homepage! Feel free to have a look around.",
-                                br(),
-                                "I am not a frontend dev"
-                            ))
-                            .into_any()
-                    }))
-                    .hover(false)
-                    .build(),
-            ),
+            a().class("col-span-1 md:col-span-2 w-full cursor-default")
+                .on(ev::click, |click| click.prevent_default())
+                .on(ev::dblclick, |_| {
+                    let nav = use_navigate();
+                    nav(&based_url("/random"), Default::default());
+                })
+                .child(
+                    Card(
+                        CardProps::builder()
+                            .class(None)
+                            .title("Welcome")
+                            .children(Arc::new(|| {
+                                p().class("text-center")
+                                    .child((
+                                        "Welcome to my homepage! Feel free to have a look around.",
+                                        br(),
+                                        "I am not a frontend dev"
+                                    ))
+                                    .into_any()
+                            }))
+                            .hover(false)
+                            .build(),
+                    )
+                ),
             a().class("w-full h-full")
                 .href(based_url("/about"))
                 .child(Card(

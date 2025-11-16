@@ -17,6 +17,7 @@ use crate::{
             about::About,
             landing::Landing,
             projects::{Projects, project_view::ProjectView},
+            random::Random,
         },
     },
 };
@@ -50,6 +51,11 @@ pub fn Page() -> impl IntoView {
                     view: ProjectView,
                     ssr: leptos_router::SsrMode::OutOfOrder,
                 }),
+                Route(RouteProps {
+                    path: path!("/random"),
+                    view: Random,
+                    ssr: leptos_router::SsrMode::OutOfOrder,
+                }),
             )
         }),
     };
@@ -69,7 +75,7 @@ pub fn Page() -> impl IntoView {
             footer()
                 .class("bg-background-ui dark:bg-background-ui-dark text-foreground dark:text-foreground-dark py-5 text-center")
                 .child((
-                    a().href(based_url("/about")).child("About me"),
+                    a().href(based_url("/about")).child("About me").class("italic"),
                     p()
                         .child(format!(
                             "v{} on Commit {} built on {} by",
