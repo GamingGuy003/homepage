@@ -35,7 +35,6 @@ pub fn Landing() -> impl IntoView {
                 .on(ev::dblclick, |_| {
                     let nav = use_navigate();
                     let mut options = NavigateOptions::default();
-                    leptos::logging::log!("{:?}", options);
                     options.resolve = false;
                     nav(&based_url("/random"),  options);
                 })
