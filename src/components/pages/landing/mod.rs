@@ -34,7 +34,7 @@ pub fn Landing() -> impl IntoView {
                 .on(ev::click, |click| click.prevent_default())
                 .on(ev::dblclick, |_| {
                     let nav = use_navigate();
-                    nav(&based_url("/random"), Default::default());
+                    nav("random", Default::default());
                 })
                 .child(
                     Card(
