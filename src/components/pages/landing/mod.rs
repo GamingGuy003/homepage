@@ -6,7 +6,7 @@ use leptos::{
     prelude::*,
 };
 use leptos_icons::{Icon, IconProps};
-use leptos_router::hooks::use_navigate;
+use leptos_router::{NavigateOptions, hooks::use_navigate};
 
 use crate::{
     based_url,
@@ -34,7 +34,10 @@ pub fn Landing() -> impl IntoView {
                 .on(ev::click, |click| click.prevent_default())
                 .on(ev::dblclick, |_| {
                     let nav = use_navigate();
-                    nav("random", Default::default());
+                    let mut options = NavigateOptions::default();
+                    leptos::logging::log!("{:?}", options);
+                    options.resolve = false;
+                    nav(&based_url("/random"),  options);
                 })
                 .child(
                     Card(
