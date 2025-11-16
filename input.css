@@ -38,10 +38,6 @@
   display: none;
 }
 
-a {
-  font-style: italic;
-}
-
 @keyframes gradient {
   0% {
     background-position: 0% 50%;

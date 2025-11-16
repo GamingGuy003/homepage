@@ -83,6 +83,7 @@ pub fn About() -> impl IntoView {
                                     will always be the time of the last page update. If you are interested
                                     in the way this page is built / deployed, go look at the ",
                                     a()
+                                        .class("italic")
                                         .href("https://github.com/GamingGuy003/homepage")
                                         .target("_blank")
                                         .child("Github Repo"),
