@@ -130,7 +130,7 @@ pub fn About() -> impl IntoView {
                                                 "flex flex-row justify-center gap-3 rounded-md bg-background-content dark:bg-background-ui-dark
                                                 py-2 shadow-md transition-transform duration-100 hover:scale-95"
                                             )
-                                            .href("mailto:bjhell@unibz.it")
+                                            .href("mailto:none@gmail.com")
                                             .target("_blank")
                                             .child((
                                                 Icon(leptos_icons::IconProps {
@@ -140,7 +140,7 @@ pub fn About() -> impl IntoView {
                                                     height: MaybeProp::default(),
                                                 })
                                                 .attr("class", "h-full"),
-                                                "Email"
+                                                "Email - Removed"
                                             )),
                                         a()
                                             .class(
